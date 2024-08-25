@@ -45,11 +45,11 @@ def parse_single_image(detected_image):
     for box in detected_image.boxes:
         x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
         label = int(box.cls.item()) + 1
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 0), 2)
+        cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)
         
         mid = (x1 + x2) // 2, (y1 + y2) // 2
 
-        cv2.putText(img, str(label), mid, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+        cv2.putText(img, str(label), mid, cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
         result["path"] = detected_image.path
         result["count"] += 1
@@ -213,7 +213,7 @@ def main():
     parser.add_argument("paths", help="Paths to the images", nargs="*")
     parser.add_argument("-m", "--model", help="Path to the model", default="best.pt")
     parser.add_argument("-v", "--validate", help="Path to the validation dataset", default=None)
-    parser.add_argument("--conf", help="Confidence threshold", default=0.5)
+    parser.add_argument("--conf", help="Confidence threshold", default=0.25)
     parser.add_argument("--iou", help="IOU threshold", default=0.5)
     parser.add_argument("-o", "--output", help="Output path", default="res")
 

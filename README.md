@@ -11,3 +11,9 @@ Total F1: 0.9823399558498898
 `./dice.py -v dataset`
 
 на синтетике f1=1, на реальных 0.97-0.99
+
+
+
+# Contributors
+
+This project was completed by Dmitry Protasov, Mikhail Pankin. If you have any questions or suggestions regarding this project, please feel free to contact us.
